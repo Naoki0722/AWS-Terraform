@@ -31,7 +31,8 @@ resource "aws_s3_bucket" "public" {
 
 # ログバケット
 resource "aws_s3_bucket" "alb_log" {
-  bucket = "alb-log-terraform-bucket"
+  bucket        = "alb-log-terraform-bucket"
+  force_destroy = true
 
   server_side_encryption_configuration {
     rule {
