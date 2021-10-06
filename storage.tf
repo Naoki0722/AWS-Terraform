@@ -31,8 +31,16 @@ resource "aws_s3_bucket" "public" {
 
 # ログバケット
 resource "aws_s3_bucket" "alb_log" {
-  bucket = "alb-log-terraform-bucket"
+  bucket        = "alb-log-terraform-bucket"
+  force_destroy = true
 
+  server_side_encryption_configuration {
+    rule {
+      apply_server_side_encryption_by_default {
+        sse_algorithm = "AES256"
+      }
+    }
+  }
   lifecycle_rule {
     enabled = true
 
@@ -56,7 +64,7 @@ data "aws_iam_policy_document" "alb_log" {
 
     principals {
       type        = "AWS"
-      identifiers = ["881585394409"]
+      identifiers = ["582318560864"]
     }
   }
 }
