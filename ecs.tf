@@ -39,7 +39,6 @@ resource "aws_ecs_service" "example" {
 
   lifecycle {
     ignore_changes = [task_definition]
-
   }
 }
 
@@ -53,7 +52,7 @@ module "nginx_sg" {
 }
 
 resource "aws_cloudwatch_log_group" "for_ecs" {
-  name              = "/ecs/exmaple"
+  name              = "/ecs/example"
   retention_in_days = 180
 }
 
