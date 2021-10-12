@@ -49,6 +49,17 @@ module "http_redirect_sg" {
   cidr_blocks = ["0.0.0.0/0"]
 }
 
+module "nginx_sg" {
+  source      = "./security_group"
+  name        = "nginx-sg"
+  vpc_id      = aws_vpc.example.id
+  port        = 80
+  cidr_blocks = [aws_vpc.example.cidr_block]
+
+}
+
+
+
 # リスナーの設定
 resource "aws_lb_listener" "http" {
   load_balancer_arn = aws_lb.example.arn
