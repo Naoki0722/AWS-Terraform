@@ -38,7 +38,7 @@ resource "aws_ecs_service" "example" {
   }
 
   lifecycle {
-    # ignore_changes = [task_definition]
+    ignore_changes = [task_definition]
   }
 }
 
