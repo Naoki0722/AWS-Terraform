@@ -187,9 +187,7 @@ resource "aws_lb_target_group" "example" {
     protocol            = "HTTP"
   }
 
-  # depends_on = [
-  #   [aws_lb.example]
-  # ]
+  depends_on = [aws_lb.example]
 }
 
 resource "aws_lb_listener_rule" "example" {
