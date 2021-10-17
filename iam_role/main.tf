@@ -1,7 +1,3 @@
-variable "name" {}
-variable "policy" {}
-variable "identifier" {}
-
 # ポリシー
 resource "aws_iam_policy" "default" {
   name   = var.name
