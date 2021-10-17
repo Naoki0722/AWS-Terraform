@@ -1,8 +1,3 @@
-provider "aws" {
-  region  = "ap-northeast-1"
-  profile = "default"
-}
-
 data "aws_iam_policy_document" "allow_describe_regions" {
   statement {
     effect    = "Allow"
