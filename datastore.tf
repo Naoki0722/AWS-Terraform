@@ -60,13 +60,7 @@ resource "aws_db_instance" "example" {
   }
 }
 
-module "mysql_sg" {
-  source      = "./security_group"
-  name        = "mysql-sg"
-  vpc_id      = aws_vpc.example.id
-  port        = 3306
-  cidr_blocks = [aws_vpc.example.cidr_block]
-}
+
 
 resource "aws_elasticache_parameter_group" "example" {
   name   = "example"
@@ -101,11 +95,4 @@ resource "aws_elasticache_replication_group" "example" {
   subnet_group_name             = aws_elasticache_subnet_group.exapmple.name
 }
 
-module "redis_sg" {
-  source      = "./security_group"
-  name        = "redis-sg"
-  vpc_id      = aws_vpc.example.id
-  port        = 6379
-  cidr_blocks = [aws_vpc.example.cidr_block]
-}
 
