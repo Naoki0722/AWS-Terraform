@@ -1,10 +1,3 @@
-variable "name" {}
-variable "vpc_id" {}
-variable "port" {}
-variable "cidr_blocks" {
-  type = list(string)
-}
-
 # セキュリティーグループ
 resource "aws_security_group" "default" {
   name   = var.name
